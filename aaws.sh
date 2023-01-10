@@ -18,11 +18,11 @@ PS1="\$(_aaws_PS1)$PS1"
 
 function aaws()
 {
-  export AAWS_AUTOCOMPLETE="$(grep '^\[' ~/.aws/credentials ~/.aws/config | cut -d : -f2 | sed -r -e 's/^\[profile /[/g' -e 's/\[|\]//g' | uniq)"
+  export AAWS_AUTOCOMPLETE="$(grep '^\[' ~/.aws/credentials | cut -d : -f2 | sed -r -e 's/^\[profile /[/g' -e 's/\[|\]//g' | uniq)"
 
   complete -W "$AAWS_AUTOCOMPLETE" aaws
 
-  if [[ "-h " == "$@ " ]] || [[ "--help " == "$@ " ]] || [[ "" == "$@ " ]]
+  if [[ "-h " == "$@ " ]] || [[ "--help " == "$@ " ]]
   then
     echo "usages: aaws [options] [profile]"
     echo ""
