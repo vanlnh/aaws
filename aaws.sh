@@ -22,7 +22,7 @@ function aaws()
 
   complete -W "$AAWS_AUTOCOMPLETE" aaws
 
-  if [[ "-h " == "$@ " ]] || [[ "--help " == "$@ " ]]
+  if [[ "-h " == "$@ " ]] || [[ "--help " == "$@ " ]] || [[ "" == "$@ " ]]
   then
     echo "usages: aaws [options] [profile]"
     echo ""
